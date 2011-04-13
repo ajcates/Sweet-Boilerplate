@@ -2,13 +2,6 @@
 $navItems = array(
 	'Home' => array(
 		'Dashboard' => SITE_URL,
-	),
-	'Bustr' => array(
-		'Gun Matchr' => SITE_URL . 'holster-guns',
-		'Bailr' => SITE_URL . 'holsterBuster'
-	),
-	'Scrapr' => array(
-		'Product Page' => SITE_URL . 'scrapr/product'
 	)
 );
  

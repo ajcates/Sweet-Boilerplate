@@ -1,1 +1,0 @@
-<a href="<?=SITE_URL . 'user/' . $user->id?>"><?=$user->fullname?> - <?=$user->username?></a>

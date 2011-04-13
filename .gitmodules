@@ -1,0 +1,6 @@
+[submodule "sweet-framework"]
+	path = sweet-framework
+	url = git@github.com:ajcates/Sweet-Framework.git
+[submodule "sweet-cmd"]
+	path = sweet-cmd
+	url = git@github.com:ajcates/sweet-cmd.git

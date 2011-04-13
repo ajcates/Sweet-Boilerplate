@@ -1,0 +1,139 @@
+#holsterMatchTitle {
+	position: relative;
+}
+#holsterMatchTitle img {
+	height: 10em;
+	position: absolute;
+	right: 100%;
+	top: 0%;
+	margin-right: 1em;
+	-webkit-box-shadow: 0px 1px 3px rgba(0,0,0, .7);
+}
+#holsterNav {
+	margin-top: 2em;
+	padding-bottom: 2em;
+	font-size: 1.5em;
+}
+
+#guns, #refGuns {
+	width: 50%;
+	padding: 0 1em;
+	display: table;
+}
+
+#guns ul, #refGuns ul {
+	height: 420px;
+	overflow-x: auto;
+	list-style: none;
+	-webkit-box-shadow: inset 0px 0px 4px rgba(0,0,0 , .7);
+	background: rgba(0,0,0 , .15);
+	border: 1px solid rgba(255,255,255, .6);
+	padding: .5em;
+}
+
+.gunMatch #guns ul {
+	height: auto;
+}
+#guns ul li, #refGuns ul li {
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0, .1);
+	border-top: 1px solid rgba(255,255,255, .1);
+}
+#refGuns ul li {
+	padding:  .25em 0;
+}
+#guns ul li label {
+	display: block;
+	padding:  .25em 0;
+	padding-left: 1.5em;
+}
+#guns ul li input {
+	position: absolute;
+	left: 0;
+	top: 5px;
+}
+
+input[type=checkbox]:checked + label {
+	background: rgba(255,255,255, .4);
+}
+
+#saveButton {
+	padding-top: 1em;
+	
+	text-align: center;
+}
+
+.holsterMatch header {
+	display: none;
+}
+.gunMatch header h1, .gunMatch header h3 {
+	display: none;
+}
+.gunMatch {
+	text-align: center;
+}
+.gunMatch #guns {
+	margin: 0 auto;
+	text-align: left;
+}
+.gunMatch #guns h4 {
+	text-align: center;
+}
+.gunMatch #saveButton {
+	position: fixed;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	background: #8f999c;
+	-webkit-box-shadow: 0px -1px 0px rgba(255,255,255, .3);
+	z-index: 999;
+	padding: 1em 2em;
+}
+.gunMatch hgroup.title {
+	position: fixed;
+	top: -1em;
+	left: .5em;
+}
+.gunMatch header {
+	display: none;
+}
+.gunMatch {
+	padding-top: 1em;
+}
+.gunMatch header {
+	border: none;
+	-webkit-box-shadow: none;
+}
+
+.gunMatch .contentTitle {
+	position: fixed;
+	top: 4em;
+	left: 2em;
+	text-align: left;
+	max-width: 30%;
+}
+
+#nextLink a {
+	position: fixed;
+	left: 55%;
+	background: rgba(0,0,0, .3);
+	z-index: 999;
+	bottom: 0px;
+	padding: 1em 2em;
+	-webkit-transition: all ease .3s;
+}
+#prevLink a {
+	position: fixed;
+	right: 55%;
+	background: rgba(0,0,0, .3);
+	z-index: 999;
+	bottom: 0px;
+	padding: 1em 2em;
+	-webkit-transition: all ease .3s;
+}
+#prevLink a:hover, #nextLink a:hover {
+	background-color: rgba(0,0,0, .2);
+}
+.topLabel {
+	line-height: 0;
+}

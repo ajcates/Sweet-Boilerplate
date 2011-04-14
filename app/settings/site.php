@@ -1,7 +1,7 @@
 <?php
 SweetFramework::getClass('lib', 'Config')->setAll('site', array(
-	'name' => 'Holster Data Kungfu',
-	'tagline' => 'Chopping up holster data since 1754',
+	'name' => 'Sweet-Boilerplate',
+	'tagline' => 'It\'s like a copy of God you can clone.',
 	'prettyUrls' => false,
 	'database' => 'default',
 	'autoload' => array('SweetModel'),

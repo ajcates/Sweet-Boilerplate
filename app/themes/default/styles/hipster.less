@@ -1,0 +1,392 @@
+/*	Less Framework 4
+	http://lessframework.com
+	by Joni Korpi
+	License: http://creativecommons.org/licenses/MIT/	*/
+
+
+/*	Resets
+	------	*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+@color_link: #ff423c;
+
+a {
+	color: @color_link;
+	text-decoration: none;
+  .transition(ease .25s color);
+  img {border: 0;}
+}
+
+a:hover {
+	color: #ffb43c;
+  color: lighten(@color_link, 20);
+}
+
+/*	Typography presets
+	------------------	*/
+
+@font_gigantic: 110px;
+@line_gigantic: 120px;
+.gigantic {
+	font-size: @font_gigantic;
+	line-height: @line_gigantic;
+	letter-spacing: -2px;
+}
+
+@font_huge: 68px;
+@line_huge: 72px;
+.huge, h1 {
+	font-size: @font_huge;
+	line-height: @line_huge;
+	letter-spacing: -1px;
+	font-family: Helvetica, “Helvetica Neue”, Arial, sans-serif;
+}
+
+@font_large: 42px;
+@line_large: 48px;
+.large, h2 {
+	font-size: @font_large;
+	line-height: @line_large;
+}
+
+@font_bigger: 23px;
+@line_bigger: 36px;
+.bigger, h3 {
+	font-size: @font_bigger;
+	line-height: @line_bigger;
+}
+
+@font_big: 22px;
+@line_small: 30px;
+.big, h4 {
+	font-size: @font_big;
+	line-height: @line_small;
+}
+
+body, input {
+	font: @font_normal/@line_normal Georgia, serif;
+}
+
+@font_small: 13px;
+@line_small: 18px;
+.small, small {
+	font-size: @font_small;
+	line-height: @line_small;
+}
+h1, h2, h3, h4 {
+	margin: .5em 0;
+}
+
+textarea, code {
+	font-family: menlo, Consolas, Monaco, "DejaVu Sans Mono", "Liberation Mono", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier, monospace;
+}
+/* Mixins */
+
+.border_radius(@radius: 3px) {
+  -webkit-border-radius:@radius;
+  -moz-border-radius:@radius;
+  border-radius:@radius;
+}
+
+.multi_rounded_corners(@topLeft: 3px, @topRight: 3px, @bottomRight: 3px, @bottomLeft: 3px) {
+  -webkit-border-top-left-radius: @topLeft;
+  -webkit-border-top-right-radius: @topRight;
+  -webkit-border-bottom-right-radius: @bottomRight;
+  -webkit-border-bottom-left-radius: @bottomLeft;
+  -moz-border-radius-topleft: @topLeft;
+  -moz-border-radius-topright: @topRight;
+  -moz-border-radius-bottomright: @bottomRight;
+  -moz-border-radius-bottomleft: @bottomLeft;
+  border-top-left-radius: @topLeft;
+  border-top-right-radius: @topRight;
+  border-bottom-right-radius: @bottomRight;
+  border-bottom-left-radius: @bottomLeft;
+}
+
+.vertical_gradient(@from: #000, @to: #FFF) {
+  background: @from;
+  background: -webkit-gradient(linear, 0 bottom, 0 top, from(@from), to(@to));
+  background: -webkit-linear-gradient(@from, @to);
+  background: -moz-linear-gradient(-90deg, @from 0%, @to 100%);
+  background: -moz-gradient(center top, @from 0%, @to 100%);
+  /* For Internet Explorer 5.5 - 7 */
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d,endColorstr=%d)", @from, @to));
+  /* For Internet Explorer 8 */
+  -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d, endColorstr=%d)", @from, @to);
+}
+
+.box_shadow(@shadow-x:3px, @shadow-y:3px, @shadow-rad:3px, @shadow-in:3px, @shadow-color:#cccccc) {
+  -webkit-box-shadow:@shadow-x @shadow-y @shadow-rad @shadow-in @shadow-color;
+  -moz-box-shadow:@shadow-x @shadow-y @shadow-rad @shadow-in @shadow-color;
+  box-shadow:@shadow-x @shadow-y @shadow-rad @shadow-in @shadow-color;
+}
+
+.inset_box_shadow(@shadow_x:3px, @shadow_y:3px, @shadow_rad:3px, @shadow_in:3px, @shadow_color:#cccccc) {
+  -webkit-box-shadow:inset @shadow_x @shadow_y @shadow_rad @shadow_in @shadow_color;
+  -moz-box-shadow:inset @shadow_x @shadow_y @shadow_rad @shadow_in @shadow_color;
+  box-shadow:inset @shadow_x @shadow_y @shadow_rad @shadow_in @shadow_color;
+}
+ 
+.text_shadow(@shadow-x:3px, @shadow-y:3px, @shadow-rad:3px, @shadow-color:#fff) {
+  text-shadow:@shadow-x @shadow-y @shadow-rad @shadow-color;
+}
+
+.multi_color_border(@top, @sides, @bottom) {
+  border-top: 1px solid @top;
+  border-left: 1px solid @sides;
+  border-right: 1px solid @sides;
+  border-bottom: 1px solid @bottom;
+}
+
+.transition(@transition: all .3s ease) {
+	-moz-transition: @transition;
+	-o-transition:@transition;
+	-webkit-transition: @transition;
+	transition: @transition; 
+}
+
+.button() {
+	text-align: center;
+	cursor: pointer;
+	background: rgba(0,0,0, .5);
+  padding: @font_big/4 @font_big/2;
+	font-size: @font_big;
+	border: none;
+	color: rgba(0,0,0, .7);
+  .border_radius(3px);
+	-webkit-box-shadow:
+		0px 10px 0px rgba(0,0,0, .7),
+		0px 11px 0px rgba(255,255,255, .7),
+		0px 12px 5px rgba(0,0,0, .3)
+	;
+	-moz-box-shadow:
+		0px 10px 0px rgba(0,0,0, .7),
+		0px 11px 0px rgba(255,255,255, .7),
+		0px 12px 5px rgba(0,0,0, .3)
+	;
+  .text_shadow(0px 1px 0px rgba(255,255,255,.3);
+	position: relative;
+  &:active {
+    top: 9px;
+    background: rgba(0,0,0, .6);
+    -webkit-box-shadow:
+      0px 1px 0px rgba(0,0,0, .8),
+      0px 2px 0px rgba(255,255,255, .7),
+      0px 3px 5px rgba(0,0,0, .3)
+    ;
+    -moz-box-shadow:
+      0px 1px 0px rgba(0,0,0, .8),
+      0px 2px 0px rgba(255,255,255, .7),
+      0px 3px 5px rgba(0,0,0, .3)
+    ;
+  }
+}
+/* End Mixins */
+
+
+/* Selection colours (easy to forget) */
+
+@color_highlight: rgb(255,255,158);
+
+::selection 	 	{background: @color_highlight;}
+::-moz-selection 	{background: @color_highlight;}
+img::selection 		{background: @color_highlight;}
+img::-moz-selection	{background: @color_highlight;}
+body {-webkit-tap-highlight-color: @color_highlight;}
+
+
+
+
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+@xol1: 68px;
+@xol2: 160px;
+@xol3: 252px;
+@xol4: 344px;
+@xol5: 436px;
+@xol6: 528px;
+@xol7: 620px;
+@xol8: 712px;
+@xol9: 804px;
+@xol10: 896px;
+
+@color_body_background: rgb(205,218,223);
+@color_body_text: rgb(0,0,0, .7);
+
+@font_normal: 16px;
+@line_normal: 24px;
+body {
+	width: @xol10;
+	margin: 0 auto;
+	padding: 0px @line_normal*2 @line_normal*3;
+	background: @color_body_background url("../images/bg.png") repeat;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+  color: #000;
+	color: @color_body_text;
+	text-shadow: 0px 1px 0px rgba(255,255,255, .7);
+	-webkit-font-smoothing: antialiased;
+	font-family:  Helvetica, “Helvetica Neue”, Arial, sans-serif;
+  font-size: @font_normal;
+  line-height: @line_normal;
+}
+
+header {
+  padding-bottom: @line_normal;
+	border-bottom: 2px solid rgba(0,0,0, .7);
+  .box_shadow(0px 1px 0px rgba(255,255,255, .7));
+  h1 {
+    padding: 0;
+    line-height: 0;
+  }
+  nav {
+    width: 230px;
+    position: fixed;
+    right: 0;
+    &  > ul {
+      width: 100%;
+      background: blue;
+      list-style-position: inside;
+      list-style: none;
+      & > li {
+        float: left;
+        margin-right: 5em;
+        & > ul {
+          margin-left: 1em;
+          list-style: square;
+          list-style-position: inside;
+        }
+      }
+    }
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+}
+
+
+h1 {
+	font-family: Helvetica, “Helvetica Neue”, Arial, sans-serif;
+}
+h1 + h4 {
+	position: relative;
+	top: -1em;
+}
+textarea {
+	width: 100%;
+  .border_radius();
+  padding: @line_small/2;
+	border: 1px solid rgba(0,0,0, .3);
+  .box_shadow(0px 1px 0px rgba(255,255,255, .7));
+}
+
+ul {
+	list-style-position: inside;
+}
+
+input[type='submit'], .button {
+  .button();
+}
+
+form {
+	margin-bottom: @line_normal * 3;
+}
+
+footer {
+	margin-top:@line_normal * 2;
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.middle {
+	display: table;
+	margin: 0 auto;
+}
+
+.clear {
+	clear: both;
+}
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+	body {
+		width: @xol8;
+		padding: @line_normal*2 @line_normal @line_normal*2;
+	}
+}
+
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	
+	body {
+    width: @xol2;
+		padding: @line_normal*2 @line_normal @line_normal*3;
+	}
+	
+}
+
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	body {
+		width: @xol5;
+		padding: @line_normal*1.5 @line_normal @line_normal*2;
+	}
+	
+}

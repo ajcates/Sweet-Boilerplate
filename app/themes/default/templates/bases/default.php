@@ -2,6 +2,9 @@
 	'head' => B::head(
 		B::meta(array('charset' => 'utf-8')),
 		B::title($siteName . ' - ' . $title),
+    B::script(array('src' => T::$url . 'scripts/less.js')),
+    B::link(array('rel' => 'stylesheet/less', 'type' => 'text/css')),
+    B::script(array('src' => T::$url . 'scripts/less.js')),
 		isset($headInclude) ? $headInclude : V::get('common/headIncludes')
 	),
 	'body' => B::body(
